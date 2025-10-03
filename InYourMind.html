@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>In Your Mind</title>
+    <meta name="description" content="In Your Mind – your personal space for ideas and creativity.">
+
+    <!-- Favicon -->
+    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/1055/1055646.png" type="image/png">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Montserrat', sans-serif; line-height: 1.6; transition: background 0.3s, color 0.3s; }
+
+        /* Dark/Light mode */
+        body.light { background: #f9f9f9; color: #333; }
+        body.dark { background: #121212; color: #e0e0e0; }
+
+        header { padding: 100px 20px; text-align: center; transition: background 0.3s; }
+        header.light { background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%); color: #fff; }
+        header.dark { background: linear-gradient(135deg, #333 0%, #555 100%); color: #fff; }
+        header h1 { font-size: 3em; margin-bottom: 10px; animation: fadeIn 1s ease-in; }
+        header p { font-size: 1.2em; animation: fadeIn 2s ease-in; }
+        .btn { display: inline-block; background: #fff; color: #2575fc; padding: 12px 30px; text-decoration: none; border-radius: 30px; margin-top: 20px; font-weight: bold; transition: 0.3s; }
+        .btn:hover { background: #f0f0f0; transform: translateY(-3px); }
+
+        nav { text-align: center; padding: 10px 0; }
+        nav.light { background: #2575fc; }
+        nav.dark { background: #444; }
+        nav a { color: #fff; text-decoration: none; margin: 0 15px; font-weight: bold; transition: 0.3s; }
+        nav a:hover { color: #ffdd59; }
+
+        section { padding: 80px 20px; max-width: 1000px; margin: auto; opacity: 0; transform: translateY(20px); animation: slideUp 1s forwards; }
+        section h2 { font-size: 2em; margin-bottom: 20px; color: #2575fc; }
+        section p { font-size: 1.1em; margin-bottom: 10px; }
+
+        .blog-container { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; }
+        .blog-card { background: #fff; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); width: 300px; padding: 20px; transition: transform 0.3s, box-shadow 0.3s; }
+        .blog-card:hover { transform: translateY(-5px); box-shadow: 0 8px 12px rgba(0,0,0,0.2); }
+        .blog-card h3 { color: #2575fc; margin-bottom: 10px; }
+        .blog-card p { font-size: 1em; color: #555; }
+
+        footer { text-align: center; padding: 20px; background: #333; color: #fff; }
+
+        /* Dark mode adjustments for cards */
+        body.dark .blog-card { background: #1e1e1e; box-shadow: 0 4px 6px rgba(255,255,255,0.05); }
+        body.dark .blog-card h3 { color: #90caf9; }
+        body.dark .blog-card p { color: #ccc; }
+
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+        @media (max-width: 600px) {
+            header h1 { font-size: 2em; }
+            nav a { display: block; margin: 10px 0; }
+            .blog-container { flex-direction: column; align-items: center; }
+        }
+
+        /* Dark mode toggle button */
+        #toggleBtn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #2575fc;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        #toggleBtn:hover { background: #0056b3; }
+    </style>
+</head>
+<body class="light">
+
+    <button id="toggleBtn">Dark Mode</button>
+
+    <header class="light">
+        <h1>Welcome to In Your Mind</h1>
+        <p>Your personal space for ideas and creativity.</p>
+        <a href="#about" class="btn">Explore More</a>
+    </header>
+
+    <nav class="light">
+        <a href="#about">About</a>
+        <a href="#ideas">Ideas</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <section id="about" style="animation-delay: 0.3s;">
+        <h2>About Me</h2>
+        <p>Hello! I created “In Your Mind” to share my ideas, thoughts, and creative projects. This is a space to explore and express freely.</p>
+    </section>
+
+    <section id="ideas" style="animation-delay: 0.5s;">
+        <h2>Ideas & Blog</h2>
+        <div class="blog-container" id="blogContainer">
+            <!-- Blog posts added dynamically -->
+        </div>
+    </section>
+
+    <section id="projects" style="animation-delay: 0.7s;">
+        <h2>Projects</h2>
+        <p>This section highlights my personal projects. From small experiments to larger creative works, everything I make gets showcased here.</p>
+    </section>
+
+    <section id="contact" style="animation-delay: 0.9s;">
+        <h2>Contact</h2>
+        <p>Feel free to reach out via email or connect on social media. I love hearing from fellow creatives!</p>
+        <p>Email: <a href="mailto:your@email.com">your@email.com</a></p>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 In Your Mind. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Blog posts
+        const blogPosts = [
+            { title: "Creative Thinking", content: "Exploring ways to boost creativity in everyday life and generate innovative ideas." },
+            { title: "Personal Growth", content: "Sharing insights on self-improvement, habits, and mindset for personal development." },
+            { title: "Fun Experiments", content: "Small experiments and projects I try to learn new skills and test creative concepts." },
+            { title: "Daily Inspiration", content: "Collecting inspirational thoughts and ideas to motivate creativity every day." }
+        ];
+
+        const blogContainer = document.getElementById('blogContainer');
+        blogPosts.forEach(post => {
+            const card = document.createElement('div');
+            card.className = 'blog-card';
+            card.innerHTML = `<h3>${post.title}</h3><p>${post.content}</p>`;
+            blogContainer.appendChild(card);
+        });
+
+        // Dark/Light mode toggle
+        const toggleBtn = document.getElementById('toggleBtn');
+        toggleBtn.addEventListener('click', () => {
+            document.body.classList.toggle('dark');
+            document.body.classList.toggle('light');
+            document.querySelector('header').classList.toggle('dark');
+            document.querySelector('header').classList.toggle('light');
+            document.querySelector('nav').classList.toggle('dark');
+            document.querySelector('nav').classList.toggle('light');
+            toggleBtn.textContent = document.body.classList.contains('dark') ? 'Light Mode' : 'Dark Mode';
+        });
+    </script>
+
+</body>
+</html>
